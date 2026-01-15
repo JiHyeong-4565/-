@@ -1,0 +1,35 @@
+import sys
+
+##sys.setrecursionlimit()
+# 재귀 깊이를 100만 번까지 늘림 (보통 이 정도면 충분)
+sys.setrecursionlimit(10**6)
+
+def dfs(n):
+    # 깊은 재귀 로직...
+    pass
+
+##sys.max size -> 아주 큰수를 안전하게 설정해
+# min_val = 999999999  <- (X) 혹시 이것보다 큰 답이 나오면 망함
+min_val = sys.maxsize  # <- (O) 엄청 큰 수로 초기화
+
+numbers = [10, 5, 100]
+for num in numbers:
+    if num < min_val:
+        min_val = num
+
+#sys.exit()
+for i in range(100):
+    for j in range(100):
+        if i == 50 and j == 50:
+            print("찾았다!")
+            sys.exit() # 프로그램이 여기서 즉시 종료됨 (뒤에 코드 실행 안 됨)
+
+print("이 줄은 영원히 출력되지 않습니다.")
+
+#sys.stdout.write() *줄 바꿈 자동으로 안해줌 \n 필수 기입*
+# print("Hello") 와 같지만 조금 더 빠름
+sys.stdout.write("Hello\n")
+
+# 숫자 출력 시
+num = 100
+sys.stdout.write(str(num) + "\n") # str 변환 필수!
